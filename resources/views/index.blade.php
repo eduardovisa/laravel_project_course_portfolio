@@ -1,15 +1,12 @@
 @extends('layouts.web')
 
 @section('content')
-    <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Sitio Web') }}
-            </h2>
-        </x-slot>
-
         <div class="container mx-auto">
-            @livewire('course-list')
+            @auth
+                <a href="{{ url('dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+            @else
+                <a href="{{ url('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                <a href="{{ url('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+            @endauth
         </div>
-    </x-app-layout>
 @endsection
