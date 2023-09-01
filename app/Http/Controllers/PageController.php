@@ -11,6 +11,9 @@ class PageController extends Controller
     public function home() {
         return view('index');
     }
+    public function courses() {
+        return view('courses');
+    }
 
     public function course(Course $course) {
         return view('course', compact('course'));
